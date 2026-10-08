@@ -78,7 +78,7 @@ Você pode instalar a extensão e configurar automaticamente os atalhos `Super+1
 
 O script:
 1. Compila os esquemas GSettings locais com `glib-compile-schemas`.
-2. Instala a extensão no perfil do usuário (`~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthony.github.io/`).
+2. Instala a extensão no perfil do usuário (`~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthonyaraujo.github.io/`).
 3. Configura 10 workspaces estáticas no GNOME Mutter (`org.gnome.mutter dynamic-workspaces false` e `num-workspaces 10`).
 4. Libera os atalhos `Super+1..9` do inicializador do Dash do GNOME (`switch-to-application-1..9`).
 5. Atribui `Super+1..9` e `Super+0` para alternar diretamente entre as 10 workspaces (`switch-to-workspace-1..10`).
@@ -96,14 +96,14 @@ Caso prefira instalar manualmente:
 glib-compile-schemas schemas/
 
 # 2. Criar diretório de destino
-mkdir -p ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthony.github.io/schemas
+mkdir -p ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthonyaraujo.github.io/schemas
 
 # 3. Copiar arquivos
-cp metadata.json extension.js prefs.js stylesheet.css ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthony.github.io/
-cp schemas/* ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthony.github.io/schemas/
+cp metadata.json extension.js prefs.js stylesheet.css ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthonyaraujo.github.io/
+cp schemas/* ~/.local/share/gnome-shell/extensions/dynamic-workspaces@enthonyaraujo.github.io/schemas/
 
 # 4. Habilitar extensão
-gnome-extensions enable dynamic-workspaces@enthony.github.io
+gnome-extensions enable dynamic-workspaces@enthonyaraujo.github.io
 ```
 
 ---
@@ -113,7 +113,7 @@ gnome-extensions enable dynamic-workspaces@enthony.github.io
 As configurações podem ser abertas via interface gráfica:
 
 ```bash
-gnome-extensions prefs dynamic-workspaces@enthony.github.io
+gnome-extensions prefs dynamic-workspaces@enthonyaraujo.github.io
 ```
 
 Opções disponíveis:
@@ -150,6 +150,12 @@ Para desabilitar e remover a extensão e restaurar os atalhos originais do siste
 ```bash
 ./uninstall.sh
 ```
+
+---
+
+## Autor & Mantenedor
+
+Desenvolvido por **Enthony Araujo** ([@enthonyaraujo](https://github.com/enthonyaraujo)).
 
 ---
 

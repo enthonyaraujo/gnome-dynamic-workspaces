@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2026 Enthony Araujo de Oliveira <enthonyaraujo01@gmail.com>
+ * SPDX-FileCopyrightText: 2026 Enthony Araujo <enthonyaraujo01@gmail.com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 

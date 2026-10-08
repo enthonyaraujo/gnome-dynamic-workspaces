@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-EXTENSION_UUID="dynamic-workspaces@enthony.github.io"
+EXTENSION_UUID="dynamic-workspaces@enthonyaraujo.github.io"
 TARGET_DIR="$HOME/.local/share/gnome-shell/extensions/$EXTENSION_UUID"
 
 echo "=========================================================="

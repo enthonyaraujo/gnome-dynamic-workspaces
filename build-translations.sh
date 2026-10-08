@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-DOMAIN="dynamic-workspaces@enthony.github.io"
+DOMAIN="dynamic-workspaces@enthonyaraujo.github.io"
 POT_FILE="po/${DOMAIN}.pot"
 
 echo "=========================================================="

@@ -1,8 +1,8 @@
 # Contexto do Projeto: GNOME Dynamic Workspaces
 
-- **Projeto**: `gnome-workspace-indicator`
-- **Extensão ID**: `dynamic-workspaces@enthony.github.io`
-- **Repositório local**: `/home/enthony/GitHub/gnome-workspace-indicator`
+- **Projeto**: `gnome-dynamic-workspaces`
+- **Extensão ID**: `dynamic-workspaces@enthonyaraujo.github.io`
+- **Repositório GitHub**: `https://github.com/enthonyaraujo/gnome-dynamic-workspaces`
 - **Status**: Ativo; implementação compatível com GNOME Shell 50/51 (e retrocompatível com 45+)
 - **Stack**: GNOME Shell (ESM JavaScript), Mutter/Meta API, Clutter/St, Libadwaita (GTK4), GSettings (XML Schema), Bash
 - **Projeto irmão (referência KDE)**: `/home/enthony/GitHub/kde-workspace` (`plasma-dynamic-workspaces`)

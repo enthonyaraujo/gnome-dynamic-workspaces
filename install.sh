@@ -4,7 +4,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-EXTENSION_UUID="dynamic-workspaces@enthony.github.io"
+EXTENSION_UUID="dynamic-workspaces@enthonyaraujo.github.io"
 TARGET_DIR="$HOME/.local/share/gnome-shell/extensions/$EXTENSION_UUID"
 
 echo "=========================================================="

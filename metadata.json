@@ -1,13 +1,14 @@
 {
-    "uuid": "dynamic-workspaces@enthony.github.io",
+    "uuid": "dynamic-workspaces@enthonyaraujo.github.io",
     "name": "Dynamic Workspaces",
     "name[pt_BR]": "Workspaces Dinâmicas",
     "description": "Hyprland-style workspace indicator for GNOME Shell: displays only the active workspace and those containing open windows. Features direct navigation (Super+1..0), follow-focus window moving (Super+Shift+1..0), scroll cycling, and multi-monitor filtering.",
     "description[pt_BR]": "Indicador de workspaces no estilo Hyprland para GNOME Shell: exibe dinamicamente apenas a workspace ativa e as que contêm janelas abertas. Inclui navegação direta (Super+1..0), mover janela acompanhando foco (Super+Shift+1..0), rolagem com mouse e suporte a multi-monitor.",
     "version": 1,
     "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
-    "url": "https://github.com/enthony/gnome-workspace-indicator",
+    "url": "https://github.com/enthonyaraujo/gnome-dynamic-workspaces",
+    "developer-name": "Enthony Araujo",
     "settings-schema": "org.gnome.shell.extensions.dynamic-workspaces",
-    "gettext-domain": "dynamic-workspaces@enthony.github.io",
+    "gettext-domain": "dynamic-workspaces@enthonyaraujo.github.io",
     "icon": "workspace-switcher-symbolic"
 }

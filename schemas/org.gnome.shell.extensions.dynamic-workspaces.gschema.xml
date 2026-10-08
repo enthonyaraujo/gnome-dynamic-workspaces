@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="dynamic-workspaces@enthony.github.io">
+<schemalist gettext-domain="dynamic-workspaces@enthonyaraujo.github.io">
   <enum id="org.gnome.shell.extensions.dynamic-workspaces.PanelPosition">
     <value value="0" nick="left"/>
     <value value="1" nick="center"/>

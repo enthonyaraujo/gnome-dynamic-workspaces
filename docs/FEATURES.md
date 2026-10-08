@@ -35,4 +35,4 @@
 ## 6. Painel e Customização
 - **Posicionamento**: Escolha se o indicador deve ficar à esquerda (`left`), no centro (`center`) ou à direita (`right`) do painel superior.
 - **Ocultar Indicador Padrão**: Opção de ocultar os pontos de workspaces nativos do GNOME para uma barra superior 100% limpa e integrada.
-- **Preferências Gráficas**: Painel de configurações moderno construído em Libadwaita (`gnome-extensions prefs dynamic-workspaces@enthony.github.io`).
+- **Preferências Gráficas**: Painel de configurações moderno construído em Libadwaita (`gnome-extensions prefs dynamic-workspaces@enthonyaraujo.github.io`).
