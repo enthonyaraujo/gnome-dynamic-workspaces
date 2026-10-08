@@ -1,6 +1,6 @@
 # GNOME Dynamic Workspaces
 
-Extensão para o **GNOME Shell 50 / 51** (e retrocompatível com 45+) que traz o comportamento de workspaces dinâmicas e navegação estilo **Hyprland**:
+Extensão para o **GNOME Shell 50 / 51** (e retrocompatível com 45+) que traz o comportamento de workspaces dinâmicas:
 - Exibe dinamicamente apenas a workspace ativa e aquelas que contêm janelas abertas.
 - Navegação direta entre até 10 workspaces com atalhos de teclado (`Super+1..0`).
 - Mover janela ativa e acompanhar o foco automaticamente para a nova workspace (`Super+Shift+1..0`, estilo `movetoworkspace`).
