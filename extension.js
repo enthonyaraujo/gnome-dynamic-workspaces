@@ -165,7 +165,9 @@ class WorkspaceButton extends St.Button {
                 duration: TOOLTIP_ANIMATION_TIME,
                 mode: Clutter.AnimationMode.EASE_OUT_QUAD,
                 onComplete: () => {
-                    this._tooltip.visible = false;
+                    if (this._tooltip) {
+                        this._tooltip.visible = false;
+                    }
                 },
             });
         }
@@ -173,6 +175,7 @@ class WorkspaceButton extends St.Button {
 
     _onDestroy() {
         if (this._tooltip) {
+            this._tooltip.remove_all_transitions();
             this._tooltip.destroy();
             this._tooltip = null;
         }
@@ -290,8 +293,11 @@ class WorkspaceIndicator extends PanelMenu.Button {
     }
 
     _rebuild() {
-        this._box.destroy_all_children();
+        for (const btn of this._buttons) {
+            btn.destroy();
+        }
         this._buttons = [];
+        this._box.destroy_all_children();
 
         const totalWorkspaces = global.workspace_manager.n_workspaces;
         const maxConfigured = this._settings.get_int('max-workspaces');

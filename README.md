@@ -10,6 +10,18 @@ Extensão para o **GNOME Shell 50 / 51** (e retrocompatível com 45+) que traz o
 
 ---
 
+## Empacotamento para Publicação
+
+Para gerar o pacote `.zip` oficial para envio em [extensions.gnome.org/upload](https://extensions.gnome.org/upload/):
+
+```bash
+./package.sh
+```
+
+O script atualiza os catálogos de tradução, gera o `.shell-extension.zip` via `gnome-extensions pack` e valida a conformidade das regras do GNOME via `shexli`.
+
+---
+
 ## Autor & Mantenedor
 
 Desenvolvido por **Enthony Araujo** ([@enthonyaraujo](https://github.com/enthonyaraujo)).

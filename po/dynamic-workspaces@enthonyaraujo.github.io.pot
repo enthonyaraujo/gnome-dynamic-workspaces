@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dynamic Workspaces 1\n"
 "Report-Msgid-Bugs-To: enthonyaraujo01@gmail.com\n"
-"POT-Creation-Date: 2026-10-08 11:02-0300\n"
+"POT-Creation-Date: 2026-10-08 11:33-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Workspace %d"
 msgstr ""
 
 #. Pass true as 3rd param (dontCreateMenu) to avoid unnecessary popup menu
-#: extension.js:192
+#: extension.js:195
 msgid "Dynamic Workspaces"
 msgstr ""
 

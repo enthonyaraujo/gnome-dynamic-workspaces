@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dynamic Workspaces 1\n"
 "Report-Msgid-Bugs-To: enthonyaraujo01@gmail.com\n"
-"POT-Creation-Date: 2026-10-08 10:42-0300\n"
+"POT-Creation-Date: 2026-10-08 11:33-0300\n"
 "PO-Revision-Date: 2026-10-08 10:43-0300\n"
 "Last-Translator: Enthony Araujo <enthonyaraujo01@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -23,7 +23,7 @@ msgid "Workspace %d"
 msgstr "Workspace %d"
 
 #. Pass true as 3rd param (dontCreateMenu) to avoid unnecessary popup menu
-#: extension.js:192
+#: extension.js:195
 msgid "Dynamic Workspaces"
 msgstr "Workspaces Dinâmicas"
 
@@ -48,8 +48,8 @@ msgid ""
 "The first N workspaces stay visible even when empty. The active workspace is "
 "always shown."
 msgstr ""
-"As primeiras N workspaces permanecem visíveis mesmo vazias. A workspace ativa é "
-"sempre exibida."
+"As primeiras N workspaces permanecem visíveis mesmo vazias. A workspace "
+"ativa é sempre exibida."
 
 #: prefs.js:46
 msgid "Maximum workspaces"
@@ -68,8 +68,9 @@ msgid ""
 "When moving active window to another workspace (Super+Shift+1..0), "
 "automatically follow focus to target workspace (Hyprland movetoworkspace)."
 msgstr ""
-"Ao mover a janela ativa para outra workspace (Super+Shift+1..0), "
-"acompanhar o foco para a workspace de destino automaticamente (estilo movetoworkspace do Hyprland)."
+"Ao mover a janela ativa para outra workspace (Super+Shift+1..0), acompanhar "
+"o foco para a workspace de destino automaticamente (estilo movetoworkspace "
+"do Hyprland)."
 
 #: prefs.js:69
 msgid "Appearance and Layout"
@@ -107,7 +108,8 @@ msgstr "Ocultar indicador padrão de workspace"
 msgid ""
 "Hide the built-in GNOME activities / workspace dots button in the top bar."
 msgstr ""
-"Oculta o botão nativo de atividades / pontos de workspace do GNOME na barra superior."
+"Oculta o botão nativo de atividades / pontos de workspace do GNOME na barra "
+"superior."
 
 #: prefs.js:103
 msgid "Show workspace names on pills"
@@ -123,7 +125,8 @@ msgstr "Exibir dica ao passar o mouse"
 
 #: prefs.js:112
 msgid "Show tooltip with workspace name when hovering over a pill."
-msgstr "Exibe uma dica com o nome da workspace ao passar o mouse sobre a pílula."
+msgstr ""
+"Exibe uma dica com o nome da workspace ao passar o mouse sobre a pílula."
 
 #: prefs.js:119
 msgid "Multi-Monitor"
@@ -151,7 +154,8 @@ msgstr "Referência de Atalhos de Teclado"
 
 #: prefs.js:134
 msgid "Configured system shortcuts for navigation and window management"
-msgstr "Atalhos configurados no sistema para navegação e gerenciamento de janelas"
+msgstr ""
+"Atalhos configurados no sistema para navegação e gerenciamento de janelas"
 
 #: prefs.js:140
 msgid ""
@@ -163,8 +167,9 @@ msgid ""
 "backward"
 msgstr ""
 "• <b>Super+1..9, Super+0</b> — Alternar diretamente para as workspaces 1–10\n"
-"• <b>Super+Shift+1..9, Super+Shift+0</b> — Mover janela ativa para a workspace "
-"e acompanhar foco\n"
-"• <b>Clique com botão esquerdo</b> em qualquer pílula — Alternar para essa workspace\n"
+"• <b>Super+Shift+1..9, Super+Shift+0</b> — Mover janela ativa para a "
+"workspace e acompanhar foco\n"
+"• <b>Clique com botão esquerdo</b> em qualquer pílula — Alternar para essa "
+"workspace\n"
 "• <b>Rolar a roda do mouse</b> sobre o indicador — Avançar / voltar entre "
 "workspaces"
