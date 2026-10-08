@@ -6,6 +6,14 @@
     <value value="2" nick="right"/>
   </enum>
 
+  <enum id="org.gnome.shell.extensions.dynamic-workspaces.IndicatorStyle">
+    <value value="0" nick="pure"/>
+    <value value="1" nick="dots"/>
+    <value value="2" nick="pill"/>
+    <value value="3" nick="names"/>
+    <value value="4" nick="animated"/>
+  </enum>
+
   <schema id="org.gnome.shell.extensions.dynamic-workspaces"
           path="/org/gnome/shell/extensions/dynamic-workspaces/">
     <key name="persistent-workspaces" type="i">
@@ -19,6 +27,16 @@
       <range min="1" max="20"/>
       <summary>Maximum workspaces</summary>
       <description>Maximum number of workspaces to display in the indicator.</description>
+    </key>
+    <key name="indicator-style" enum="org.gnome.shell.extensions.dynamic-workspaces.IndicatorStyle">
+      <default>'pure'</default>
+      <summary>Indicator visual style</summary>
+      <description>Visual presentation mode: pure (GNOME Puro), dots (Indicadores de uso), pill (Cápsula sutil), names (Nomes dinâmicos), or animated (Transição animada).</description>
+    </key>
+    <key name="workspace-names" type="as">
+      <default>[]</default>
+      <summary>Custom workspace names</summary>
+      <description>Optional custom names for dynamic workspaces.</description>
     </key>
     <key name="follow-window" type="b">
       <default>true</default>

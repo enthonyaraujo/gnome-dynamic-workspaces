@@ -14,7 +14,7 @@
     margin-left: 6px;
 }
 
-/* Container box inside panel */
+/* Base container box inside panel */
 .workspace-indicator-box {
     spacing: 2px;
     padding: 0;
@@ -23,13 +23,13 @@
 /* Individual workspace pill button (inactive default) */
 .workspace-button,
 .workspace-indicator {
-    min-width: 16px;
+    min-width: 18px;
     min-height: 20px;
     padding: 1px 4px;
     border-radius: 9999px;
     margin: 3px 0;
     background-color: transparent;
-    color: rgba(255, 255, 255, 0.60);
+    color: rgba(255, 255, 255, 0.55);
     transition-duration: 150ms;
 }
 
@@ -38,54 +38,178 @@
     font-size: 10pt;
     font-weight: 500;
     text-align: center;
-    color: rgba(255, 255, 255, 0.60);
+    color: inherit;
     transition-duration: 150ms;
 }
 
-/* Active workspace: elongated horizontal white pill with solid black text */
-.workspace-button.active,
-.workspace-indicator.active {
-    min-width: 24px;
-    padding: 1px 7px;
-    background-color: #ffffff;
-    color: #000000;
+.workspace-name-label {
+    font-size: 9pt;
+    font-weight: 500;
+    margin-left: 4px;
+    color: inherit;
+    transition-duration: 150ms;
 }
 
-.workspace-button.active .workspace-button-label,
-.workspace-indicator.active .workspace-indicator-label,
-.workspace-indicator.active .workspace-button-label {
-    color: #000000;
-    font-weight: bold;
-}
-
-/* Hover on inactive workspaces */
+/* Hover on inactive workspaces across all styles */
 .workspace-button:hover,
 .workspace-indicator:hover {
-    background-color: rgba(255, 255, 255, 0.10);
+    background-color: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.85);
 }
 
 .workspace-button:hover .workspace-button-label,
-.workspace-indicator:hover .workspace-indicator-label {
+.workspace-indicator:hover .workspace-indicator-label,
+.workspace-button:hover .workspace-name-label {
     color: rgba(255, 255, 255, 0.85);
-}
-
-/* Hover on active workspace maintains solid white pill */
-.workspace-button.active:hover,
-.workspace-indicator.active:hover {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.workspace-button.active:hover .workspace-button-label,
-.workspace-indicator.active:hover .workspace-indicator-label {
-    color: #000000;
 }
 
 /* Focus outline for keyboard navigation */
 .workspace-button:focus,
 .workspace-indicator:focus {
     box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* ========================================================
+ * Estilo 1: GNOME Puro (Minimalista)
+ * ======================================================== */
+.style-pure .workspace-button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.style-pure .workspace-button.active {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.style-pure .workspace-button.active .workspace-button-label {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.style-pure .workspace-button.active:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* ========================================================
+ * Estilo 2: Indicadores de Uso (Dots)
+ * ======================================================== */
+.workspace-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    margin-top: 2px;
+    background-color: transparent;
+    transition-duration: 150ms;
+}
+
+.workspace-dot.active-dot {
+    background-color: #ffffff;
+}
+
+.workspace-dot.inactive-dot {
+    background-color: rgba(255, 255, 255, 0.50);
+}
+
+.style-dots .workspace-button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.50);
+    padding: 1px 5px;
+}
+
+.style-dots .workspace-button.active {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.style-dots .workspace-button.active .workspace-button-label {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.style-dots .workspace-button.active:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* ========================================================
+ * Estilo 3: Cápsula Sutil (Adwaita)
+ * ======================================================== */
+.style-pill .workspace-button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.style-pill .workspace-button.active {
+    min-width: 24px;
+    padding: 1px 7px;
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+}
+
+.style-pill .workspace-button.active .workspace-button-label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.style-pill .workspace-button.active:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+}
+
+/* ========================================================
+ * Estilo 4: Nomes Dinâmicos
+ * ======================================================== */
+.style-names .workspace-button {
+    min-width: 22px;
+    padding: 1px 6px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.style-names .workspace-button.active {
+    padding: 1px 9px;
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+}
+
+.style-names .workspace-button.active .workspace-button-label,
+.style-names .workspace-button.active .workspace-name-label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.style-names .workspace-button.active:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+}
+
+/* ========================================================
+ * Estilo 5: Transição Animada (Sliding Pill)
+ * ======================================================== */
+.workspace-slider-pill {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 9999px;
+    min-width: 24px;
+    min-height: 20px;
+    margin: 3px 0;
+}
+
+.style-animated .workspace-button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 1px 7px;
+}
+
+.style-animated .workspace-button.active {
+    background-color: transparent !important;
+    color: #ffffff;
+}
+
+.style-animated .workspace-button.active .workspace-button-label {
+    color: #ffffff;
+    font-weight: 600;
 }
 
 /* Tooltip appearance */

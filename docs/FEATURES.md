@@ -8,7 +8,28 @@
 - **Workspaces Persistentes**:
   - Configuração ajustável para manter as primeiras $N$ workspaces sempre visíveis (padrão: `1`), mesmo que estejam completamente vazias.
 
-## 2. Navegação Rápida e Produtiva via Teclado
+## 2. Nova Seção "Visual": 5 Modos de Apresentação
+Configuráveis em tempo de execução via interface gráfica sem necessidade de reiniciar a sessão:
+
+1. **GNOME Puro (Minimalista)**:
+   - Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell.
+   - Tipografia nativa com alto contraste para a workspace ativa e menor contraste para inativas.
+   - Sem bordas, sem fundos chamativos e sem elementos decorativos desnecessários.
+2. **Indicadores de Uso (Dots)**:
+   - Exibe números acompanhados por pequenos pontos discretos diretamente abaixo das workspaces que possuem janelas abertas.
+   - Atualização em tempo real ao abrir, fechar ou mover janelas entre telas.
+3. **Cápsula Sutil (Adwaita)**:
+   - Destaca a workspace ativa com uma superfície discreta translúcida (`rgba(255, 255, 255, 0.16)`).
+   - Inativos permanecem como texto simples sem fundos pesados.
+4. **Nomes Dinâmicos**:
+   - Exibe o número do workspace acompanhado de um nome textual personalizável (ex.: `1 Trabalho`, `2 Pessoal`, `3 Estudos`).
+   - Gerenciamento direto através da seção "Nomes dos workspaces" na aba Visual.
+   - Truncamento suave de texto com reticências para garantir que nomes longos nunca quebrem o painel.
+5. **Transição Animada (Sliding Pill)**:
+   - Move suavemente a cápsula deslizante entre as workspaces durante a troca (`180ms` com easing `EASE_OUT_QUAD`).
+   - Interrupção fluida em trocas rápidas e desacoplamento sem acúmulo de animações.
+
+## 3. Navegação Rápida e Produtiva via Teclado
 - **Alternar de Workspace Diretamente**:
   - `Super+1` a `Super+9`: salta direto para as workspaces 1 a 9.
   - `Super+0`: salta direto para a workspace 10.
@@ -16,23 +37,20 @@
   - `Super+Shift+1` a `Super+Shift+9`: move a janela em foco para a workspace correspondente e transporta a visualização e o foco instantaneamente junto com ela.
   - `Super+Shift+0`: move a janela em foco para a workspace 10 e transporta a visualização.
 
-## 3. Interação com Mouse e Touchpad
+## 4. Interação com Mouse e Touchpad
 - **Clique Direto**: Clique com o botão esquerdo em qualquer pílula de workspace para alternar para ela imediatamente.
 - **Rolagem do Mouse (Mouse Wheel)**: Ao posicionar o cursor sobre o indicador e rolar para cima ou para baixo, as workspaces são percorridas sequencialmente.
 - **Tooltips Informativos**: Passe o mouse sobre qualquer pílula para ver o nome real configurado da workspace.
-
-## 4. Estilo Visual e Tematização Adwaita
-- **Pílulas Modernas com Cores do Sistema**:
-  - Workspace ativa: utiliza a cor de destaque do tema GNOME (`@accent_bg_color`) com texto de alto contraste (`@accent_fg_color`).
-  - Workspaces ocupadas (com janelas): fundo translúcido suave e texto padrão.
-  - Workspaces persistentes vazias: fundo com opacidade reduzida (`0.05`) e texto atenuado.
-  - Efeito suave de hover e transições animadas.
 
 ## 5. Suporte a Multi-Monitor
 - **Modo Global**: Considera janelas em todos os monitores conectados para manter as workspaces visíveis.
 - **Filtro por Monitor (`filter-by-monitor`)**: Opção para considerar ocupada apenas a workspace que tiver janelas presentes na tela física onde o painel específico está localizado.
 
-## 6. Painel e Customização
-- **Posicionamento**: Escolha se o indicador deve ficar à esquerda (`left`), no centro (`center`) ou à direita (`right`) do painel superior.
-- **Ocultar Indicador Padrão**: Opção de ocultar os pontos de workspaces nativos do GNOME para uma barra superior 100% limpa e integrada.
-- **Preferências Gráficas**: Painel de configurações moderno construído em Libadwaita (`gnome-extensions prefs dynamic-workspaces@enthonyaraujo.github.io`).
+## 6. Painel e Customização (Libadwaita)
+- **Aba Comportamento**: Configuração de workspaces persistentes, limite máximo, seguimento de janela e atalhos.
+- **Aba Visual**:
+  - Seletor dos 5 estilos com descrição contextual explicativa.
+  - Prévia visual dinâmica e leve em tempo real.
+  - Edição de nomes para até 10 workspaces.
+  - Posicionamento no painel (`left`, `center`, `right`).
+  - Ocultar indicador nativo de atividades/pontos do GNOME.
