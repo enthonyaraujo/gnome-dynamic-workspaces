@@ -28,7 +28,7 @@ class WorkspaceButton extends St.Button {
 
     constructor(index, extension) {
         super({
-            style_class: 'workspace-button',
+            style_class: 'workspace-button workspace-indicator',
             can_focus: true,
             reactive: true,
             track_hover: true,
@@ -39,7 +39,7 @@ class WorkspaceButton extends St.Button {
         this._settings = extension.getSettings();
 
         this._label = new St.Label({
-            style_class: 'workspace-button-label',
+            style_class: 'workspace-button-label workspace-indicator-label',
             text: String(index + 1),
             y_align: Clutter.ActorAlign.CENTER,
             x_align: Clutter.ActorAlign.CENTER,

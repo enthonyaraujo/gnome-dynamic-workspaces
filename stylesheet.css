@@ -9,79 +9,70 @@
     padding: 0 4px;
 }
 
-/* Individual workspace pill button */
-.workspace-button {
-    min-width: 26px;
+/* Individual workspace pill button (inactive default) */
+.workspace-button,
+.workspace-indicator {
+    min-width: 24px;
     min-height: 22px;
-    padding: 2px 7px;
-    border-radius: 11px;
-    margin: 2px 1px;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    margin: 2px 2px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
     transition-duration: 150ms;
-    transition-timing-function: ease-out;
 }
 
-.workspace-button-label {
+.workspace-button-label,
+.workspace-indicator-label {
     font-size: 10.5pt;
     font-weight: 500;
     text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    transition-duration: 150ms;
 }
 
-/* Active workspace: highlighted with GNOME theme accent color */
-.workspace-button.active {
-    background-color: -st-accent-color;
-    color: -st-accent-fg-color;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+/* Active workspace: solid white pill with black text */
+.workspace-button.active,
+.workspace-indicator.active {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-.workspace-button.active .workspace-button-label {
+.workspace-button.active .workspace-button-label,
+.workspace-indicator.active .workspace-indicator-label,
+.workspace-indicator.active .workspace-button-label {
+    color: #000000;
     font-weight: bold;
-    color: -st-accent-fg-color;
 }
 
-/* Inactive workspace with open windows */
-.workspace-button.occupied {
-    background-color: alpha(currentColor, 0.12);
-    color: currentColor;
+/* Hover on inactive workspaces: subtle white tint with higher text opacity */
+.workspace-button:hover,
+.workspace-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.workspace-button.occupied .workspace-button-label {
-    color: currentColor;
+.workspace-button:hover .workspace-button-label,
+.workspace-indicator:hover .workspace-indicator-label {
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* Inactive empty workspace (persistent) */
-.workspace-button.persistent {
-    background-color: alpha(currentColor, 0.05);
-    color: alpha(currentColor, 0.4);
+/* Hover on active workspace maintains solid white pill */
+.workspace-button.active:hover,
+.workspace-indicator.active:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-.workspace-button.persistent .workspace-button-label {
-    color: alpha(currentColor, 0.45);
-}
-
-/* Hover effects */
-.workspace-button:hover {
-    background-color: alpha(currentColor, 0.18);
-}
-
-.workspace-button.active:hover {
-    background-color: st-lighten(-st-accent-color, 8%);
-}
-
-.workspace-button.occupied:hover {
-    background-color: alpha(currentColor, 0.22);
-}
-
-.workspace-button.persistent:hover {
-    background-color: alpha(currentColor, 0.12);
-}
-
-.workspace-button.persistent:hover .workspace-button-label {
-    color: alpha(currentColor, 0.8);
+.workspace-button.active:hover .workspace-button-label,
+.workspace-indicator.active:hover .workspace-indicator-label {
+    color: #000000;
 }
 
 /* Focus outline for keyboard navigation */
-.workspace-button:focus {
-    box-shadow: inset 0 0 0 2px -st-accent-color;
+.workspace-button:focus,
+.workspace-indicator:focus {
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 /* Tooltip appearance */
