@@ -19,13 +19,9 @@ Nas configurações da extensão (`gnome-extensions prefs dynamic-workspaces@ent
    - Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell.
    - Tipografia nativa com destaque sutil de contraste para o workspace ativo.
 2. **Indicadores de uso**:
-   - Exibe números acompanhados de pontos discretos abaixo dos workspaces com janelas abertas.
+   - Exibe o número da workspace com um ponto discreto (`•`) posicionado exclusivamente abaixo da workspace ativa.
 3. **Cápsula sutil**:
-   - Destaca o workspace atual com uma superfície translúcida suave estilo Adwaita.
-4. **Nomes dinâmicos**:
-   - Exibe nomes personalizados para cada workspace (ex.: `1 Trabalho`, `2 Pessoal`), configuráveis diretamente na interface.
-5. **Transição animada**:
-   - Move suavemente a cápsula deslizante entre os workspaces durante a navegação.
+   - Destaca a workspace ativa com uma superfície translúcida suave estilo Adwaita (`rgba(255, 255, 255, 0.16)`).
 
 ---
 

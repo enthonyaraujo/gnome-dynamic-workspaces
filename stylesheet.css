@@ -42,14 +42,6 @@
     transition-duration: 150ms;
 }
 
-.workspace-name-label {
-    font-size: 9pt;
-    font-weight: 500;
-    margin-left: 4px;
-    color: inherit;
-    transition-duration: 150ms;
-}
-
 /* Hover on inactive workspaces across all styles */
 .workspace-button:hover,
 .workspace-indicator:hover {
@@ -58,8 +50,7 @@
 }
 
 .workspace-button:hover .workspace-button-label,
-.workspace-indicator:hover .workspace-indicator-label,
-.workspace-button:hover .workspace-name-label {
+.workspace-indicator:hover .workspace-indicator-label {
     color: rgba(255, 255, 255, 0.85);
 }
 
@@ -93,23 +84,15 @@
 }
 
 /* ========================================================
- * Estilo 2: Indicadores de Uso (Dots)
+ * Estilo 2: Indicadores de Uso (Dots - Ponto no Workspace Ativo)
  * ======================================================== */
 .workspace-dot {
     width: 4px;
     height: 4px;
     border-radius: 9999px;
     margin-top: 2px;
-    background-color: transparent;
-    transition-duration: 150ms;
-}
-
-.workspace-dot.active-dot {
     background-color: #ffffff;
-}
-
-.workspace-dot.inactive-dot {
-    background-color: rgba(255, 255, 255, 0.50);
+    transition-duration: 150ms;
 }
 
 .style-dots .workspace-button {
@@ -156,60 +139,6 @@
 .style-pill .workspace-button.active:hover {
     background-color: rgba(255, 255, 255, 0.22);
     color: #ffffff;
-}
-
-/* ========================================================
- * Estilo 4: Nomes Dinâmicos
- * ======================================================== */
-.style-names .workspace-button {
-    min-width: 22px;
-    padding: 1px 6px;
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.55);
-}
-
-.style-names .workspace-button.active {
-    padding: 1px 9px;
-    background-color: rgba(255, 255, 255, 0.16);
-    color: #ffffff;
-}
-
-.style-names .workspace-button.active .workspace-button-label,
-.style-names .workspace-button.active .workspace-name-label {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.style-names .workspace-button.active:hover {
-    background-color: rgba(255, 255, 255, 0.22);
-    color: #ffffff;
-}
-
-/* ========================================================
- * Estilo 5: Transição Animada (Sliding Pill)
- * ======================================================== */
-.workspace-slider-pill {
-    background-color: rgba(255, 255, 255, 0.16);
-    border-radius: 9999px;
-    min-width: 24px;
-    min-height: 20px;
-    margin: 3px 0;
-}
-
-.style-animated .workspace-button {
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.55);
-    padding: 1px 7px;
-}
-
-.style-animated .workspace-button.active {
-    background-color: transparent !important;
-    color: #ffffff;
-}
-
-.style-animated .workspace-button.active .workspace-button-label {
-    color: #ffffff;
-    font-weight: 600;
 }
 
 /* Tooltip appearance */

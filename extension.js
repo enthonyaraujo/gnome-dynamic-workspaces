@@ -8,7 +8,6 @@ import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Meta from 'gi://Meta';
-import Pango from 'gi://Pango';
 import Shell from 'gi://Shell';
 import St from 'gi://St';
 
@@ -18,7 +17,6 @@ import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 
 const TOOLTIP_OFFSET = 6;
 const TOOLTIP_ANIMATION_TIME = 150;
-const SLIDER_ANIMATION_TIME = 180;
 
 /**
  * Base Strategy for Indicator Presentation Styles
@@ -32,19 +30,15 @@ class BaseIndicatorStyle {
         return 'style-pure';
     }
 
-    apply() {
-        this.indicator.showSlider(false);
-    }
+    apply() {}
 
     updateButton(button, state) {}
-
-    onActiveChanged(activeIndex, previousIndex) {}
 
     destroy() {}
 }
 
 /**
- * 1. GNOME Puro (Minimalist)
+ * 1. GNOME Puro (Minimalista)
  */
 class PureStyle extends BaseIndicatorStyle {
     get styleClass() {
@@ -53,13 +47,12 @@ class PureStyle extends BaseIndicatorStyle {
 
     updateButton(button, state) {
         button.setDotVisible(false);
-        button.setNameVisible(false);
         button.setActive(state.isActive);
     }
 }
 
 /**
- * 2. Indicadores de Uso (Dots)
+ * 2. Indicadores de Uso (Ponto apenas na workspace ativa)
  */
 class UsageStyle extends BaseIndicatorStyle {
     get styleClass() {
@@ -67,9 +60,8 @@ class UsageStyle extends BaseIndicatorStyle {
     }
 
     updateButton(button, state) {
-        button.setDotVisible(true);
-        button.setDotOccupied(state.isOccupied, state.isActive);
-        button.setNameVisible(false);
+        // O pontinho abaixo do número da workspace aparece somente na workspace ativa
+        button.setDotVisible(state.isActive);
         button.setActive(state.isActive);
     }
 }
@@ -84,52 +76,7 @@ class PillStyle extends BaseIndicatorStyle {
 
     updateButton(button, state) {
         button.setDotVisible(false);
-        button.setNameVisible(false);
         button.setActive(state.isActive);
-    }
-}
-
-/**
- * 4. Nomes Dinâmicos
- */
-class NamedStyle extends BaseIndicatorStyle {
-    get styleClass() {
-        return 'style-names';
-    }
-
-    updateButton(button, state) {
-        button.setDotVisible(false);
-        const hasName = Boolean(state.customName && state.customName.length > 0);
-        button.setNameVisible(hasName, state.customName);
-        button.setActive(state.isActive);
-    }
-}
-
-/**
- * 5. Transição Animada (Sliding Pill)
- */
-class AnimatedStyle extends BaseIndicatorStyle {
-    get styleClass() {
-        return 'style-animated';
-    }
-
-    apply() {
-        this.indicator.showSlider(true);
-        this.indicator.syncSlider(false);
-    }
-
-    updateButton(button, state) {
-        button.setDotVisible(false);
-        button.setNameVisible(false);
-        button.setActive(state.isActive);
-    }
-
-    onActiveChanged(activeIndex, previousIndex) {
-        this.indicator.syncSlider(true);
-    }
-
-    destroy() {
-        this.indicator.showSlider(false);
     }
 }
 
@@ -137,8 +84,6 @@ const STYLE_REGISTRY = {
     pure: PureStyle,
     dots: UsageStyle,
     pill: PillStyle,
-    names: NamedStyle,
-    animated: AnimatedStyle,
 };
 
 /**
@@ -161,50 +106,34 @@ class WorkspaceButton extends St.Button {
         this._extension = extension;
         this._settings = extension.getSettings();
 
-        // Horizontal container for number and optional custom name
-        this._textContainer = new St.BoxLayout({
-            vertical: false,
-            y_align: Clutter.ActorAlign.CENTER,
-            x_align: Clutter.ActorAlign.CENTER,
-        });
-
+        // Workspace number label
         this._label = new St.Label({
             style_class: 'workspace-button-label workspace-indicator-label',
             text: String(index + 1),
             y_align: Clutter.ActorAlign.CENTER,
             x_align: Clutter.ActorAlign.CENTER,
         });
-        this._textContainer.add_child(this._label);
 
-        this._nameLabel = new St.Label({
-            style_class: 'workspace-name-label',
-            visible: false,
-            y_align: Clutter.ActorAlign.CENTER,
-        });
-        this._nameLabel.clutter_text.ellipsize = Pango.EllipsizeMode.END;
-        this._textContainer.add_child(this._nameLabel);
-
-        // Small dot for usage/occupancy indicator (Style 2)
+        // Small indicator dot placed below number (Style 2: Indicadores de uso)
         this._dot = new St.Widget({
             style_class: 'workspace-dot',
             visible: false,
             x_align: Clutter.ActorAlign.CENTER,
         });
 
-        // Vertical content box holding text and dot
+        // Vertical content box holding label and optional active dot
         this._contentBox = new St.BoxLayout({
             vertical: true,
             y_align: Clutter.ActorAlign.CENTER,
             x_align: Clutter.ActorAlign.CENTER,
         });
-        this._contentBox.add_child(this._textContainer);
+        this._contentBox.add_child(this._label);
         this._contentBox.add_child(this._dot);
         this.set_child(this._contentBox);
 
         this._active = false;
         this._occupied = false;
         this._persistent = false;
-        this._customName = '';
 
         // Tooltip actor placed in uiGroup
         this._tooltip = new St.Label({
@@ -243,26 +172,6 @@ class WorkspaceButton extends St.Button {
         this._dot.visible = visible;
     }
 
-    setDotOccupied(isOccupied, isActive) {
-        this._dot.remove_style_class_name('active-dot');
-        this._dot.remove_style_class_name('inactive-dot');
-
-        if (isOccupied) {
-            this._dot.opacity = 255;
-            this._dot.add_style_class_name(isActive ? 'active-dot' : 'inactive-dot');
-        } else {
-            // Keep transparent placeholder to avoid layout jumps
-            this._dot.opacity = 0;
-        }
-    }
-
-    setNameVisible(visible, nameText = '') {
-        this._nameLabel.visible = visible;
-        if (visible) {
-            this._nameLabel.text = nameText;
-        }
-    }
-
     setActive(isActive) {
         if (isActive) {
             this.add_style_class_name('active');
@@ -271,11 +180,10 @@ class WorkspaceButton extends St.Button {
         }
     }
 
-    updateState(active, occupied, persistent, customName = '') {
+    updateState(active, occupied, persistent) {
         this._active = active;
         this._occupied = occupied;
         this._persistent = persistent;
-        this._customName = customName;
 
         this.remove_style_class_name('occupied');
         this.remove_style_class_name('persistent');
@@ -306,15 +214,10 @@ class WorkspaceButton extends St.Button {
         }
 
         if (this.hover && this.visible) {
-            let labelText = '';
-            if (this._customName && this._customName.length > 0) {
-                labelText = _('Workspace %d: %s').format(this._index + 1, this._customName);
-            } else {
-                const sysName = Meta.prefs_get_workspace_name(this._index);
-                labelText = (sysName && sysName.trim().length > 0)
-                    ? sysName
-                    : _('Workspace %d').format(this._index + 1);
-            }
+            const sysName = Meta.prefs_get_workspace_name(this._index);
+            const labelText = (sysName && sysName.trim().length > 0)
+                ? sysName
+                : _('Workspace %d').format(this._index + 1);
 
             this._tooltip.set({
                 text: labelText,
@@ -386,23 +289,6 @@ class WorkspaceIndicator extends PanelMenu.Button {
         this._trackedWindows = new Set();
         this._currentStyle = null;
         this._currentStyleId = null;
-        this._lastActiveIndex = global.workspace_manager.get_active_workspace_index();
-
-        // Top level container with BinLayout for sliding background support
-        this._container = new Clutter.Actor({
-            layout_manager: new Clutter.BinLayout(),
-        });
-        this.add_child(this._container);
-
-        // Sliding pill widget for Animated Transition style (placed behind buttons)
-        this._slider = new St.Widget({
-            style_class: 'workspace-slider-pill',
-            x_align: Clutter.ActorAlign.START,
-            y_align: Clutter.ActorAlign.CENTER,
-            reactive: false,
-            visible: false,
-        });
-        this._container.add_child(this._slider);
 
         // Horizontal box holding the workspace buttons
         this._box = new St.BoxLayout({
@@ -411,14 +297,7 @@ class WorkspaceIndicator extends PanelMenu.Button {
             y_align: Clutter.ActorAlign.CENTER,
             x_align: Clutter.ActorAlign.CENTER,
         });
-        this._container.add_child(this._box);
-
-        // Re-align slider when layout allocation updates
-        this._box.connect('notify::allocation', () => {
-            if (this._currentStyleId === 'animated') {
-                this.syncSlider(false);
-            }
-        });
+        this.add_child(this._box);
 
         // Mouse wheel scrolling cycles workspaces
         this.connect('scroll-event', (actor, event) => {
@@ -445,44 +324,16 @@ class WorkspaceIndicator extends PanelMenu.Button {
         // Settings signals
         this._settings.connectObject(
             'changed::indicator-style', () => this._updateStyle(),
-            'changed::workspace-names', () => this._updateButtons(),
             'changed::persistent-workspaces', () => this._updateButtons(),
             'changed::max-workspaces', () => this._rebuild(),
             'changed::filter-by-monitor', () => this._updateOccupancy(),
             this
         );
 
-        // Track existing windows and build
+        // Track existing windows, build buttons and apply style
         this._trackExistingWindows();
         this._rebuild();
         this._updateStyle();
-    }
-
-    showSlider(visible) {
-        if (this._slider) {
-            this._slider.visible = visible;
-        }
-    }
-
-    syncSlider(animate = false) {
-        if (!this._slider || this._currentStyleId !== 'animated') return;
-
-        const activeIndex = global.workspace_manager.get_active_workspace_index();
-        const activeBtn = this._buttons.find(btn => btn.index === activeIndex && btn.shown);
-        if (!activeBtn || activeBtn.width === 0) return;
-
-        this._slider.remove_all_transitions();
-        if (animate) {
-            this._slider.ease({
-                translation_x: activeBtn.x,
-                width: activeBtn.width,
-                duration: SLIDER_ANIMATION_TIME,
-                mode: Clutter.AnimationMode.EASE_OUT_QUAD,
-            });
-        } else {
-            this._slider.translation_x = activeBtn.x;
-            this._slider.width = activeBtn.width;
-        }
     }
 
     _updateStyle() {
@@ -571,14 +422,7 @@ class WorkspaceIndicator extends PanelMenu.Button {
     }
 
     _onActiveWorkspaceChanged() {
-        const prevIndex = this._lastActiveIndex;
-        const newIndex = global.workspace_manager.get_active_workspace_index();
-        this._lastActiveIndex = newIndex;
-
         this._updateButtons();
-        if (this._currentStyle) {
-            this._currentStyle.onActiveChanged(newIndex, prevIndex);
-        }
     }
 
     _updateOccupancy() {
@@ -621,16 +465,14 @@ class WorkspaceIndicator extends PanelMenu.Button {
     _updateButtons() {
         const activeIndex = global.workspace_manager.get_active_workspace_index();
         const persistentCount = this._settings.get_int('persistent-workspaces');
-        const customNames = this._settings.get_strv('workspace-names');
 
         for (const btn of this._buttons) {
             const i = btn.index;
             const isActive = (i === activeIndex);
             const isOccupied = this._isWorkspaceOccupied(i);
             const isPersistent = (i < persistentCount);
-            const customName = (customNames && customNames[i]) ? customNames[i].trim() : '';
 
-            btn.updateState(isActive, isOccupied, isPersistent, customName);
+            btn.updateState(isActive, isOccupied, isPersistent);
 
             if (this._currentStyle) {
                 this._currentStyle.updateButton(btn, {
@@ -638,7 +480,6 @@ class WorkspaceIndicator extends PanelMenu.Button {
                     isActive,
                     isOccupied,
                     isPersistent,
-                    customName,
                 });
             }
         }
@@ -662,12 +503,6 @@ class WorkspaceIndicator extends PanelMenu.Button {
         if (this._currentStyle) {
             this._currentStyle.destroy();
             this._currentStyle = null;
-        }
-
-        if (this._slider) {
-            this._slider.remove_all_transitions();
-            this._slider.destroy();
-            this._slider = null;
         }
 
         super.destroy();

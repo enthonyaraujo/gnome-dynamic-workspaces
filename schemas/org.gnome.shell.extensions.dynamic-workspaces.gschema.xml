@@ -10,8 +10,6 @@
     <value value="0" nick="pure"/>
     <value value="1" nick="dots"/>
     <value value="2" nick="pill"/>
-    <value value="3" nick="names"/>
-    <value value="4" nick="animated"/>
   </enum>
 
   <schema id="org.gnome.shell.extensions.dynamic-workspaces"
@@ -31,12 +29,7 @@
     <key name="indicator-style" enum="org.gnome.shell.extensions.dynamic-workspaces.IndicatorStyle">
       <default>'pure'</default>
       <summary>Indicator visual style</summary>
-      <description>Visual presentation mode: pure (GNOME Puro), dots (Indicadores de uso), pill (Cápsula sutil), names (Nomes dinâmicos), or animated (Transição animada).</description>
-    </key>
-    <key name="workspace-names" type="as">
-      <default>[]</default>
-      <summary>Custom workspace names</summary>
-      <description>Optional custom names for dynamic workspaces.</description>
+      <description>Visual presentation mode: pure (GNOME Puro), dots (Indicadores de uso), or pill (Cápsula sutil).</description>
     </key>
     <key name="follow-window" type="b">
       <default>true</default>
@@ -57,11 +50,6 @@
       <default>'left'</default>
       <summary>Panel position</summary>
       <description>Position of the indicator in the top panel (left, center, or right).</description>
-    </key>
-    <key name="show-workspace-names" type="b">
-      <default>false</default>
-      <summary>Show workspace names</summary>
-      <description>Display custom workspace names instead of numbers on pills.</description>
     </key>
     <key name="show-tooltip" type="b">
       <default>true</default>

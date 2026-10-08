@@ -122,20 +122,16 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
         });
         pageVisual.add(styleGroup);
 
-        const styleKeys = ['pure', 'dots', 'pill', 'names', 'animated'];
+        const styleKeys = ['pure', 'dots', 'pill'];
         const styleNames = [
             _('GNOME Puro'),
             _('Indicadores de uso'),
             _('Cápsula sutil'),
-            _('Nomes dinâmicos'),
-            _('Transição animada'),
         ];
         const styleDescriptions = {
             pure: _('Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell.'),
-            dots: _('Mostra quais workspaces possuem janelas abertas com pontos discretos.'),
-            pill: _('Destaca o workspace atual com uma superfície discreta estilo Adwaita.'),
-            names: _('Permite exibir nomes personalizados para os workspaces.'),
-            animated: _('Move suavemente o indicador ao trocar de workspace.'),
+            dots: _('Exibe o número da workspace com um ponto discreto apenas na workspace ativa.'),
+            pill: _('Destaca a workspace ativa com uma superfície discreta estilo Adwaita.'),
         };
 
         const currentStyleKey = settings.get_string('indicator-style') || 'pure';
@@ -144,7 +140,7 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
 
         const styleComboRow = new Adw.ComboRow({
             title: _('Indicator style'),
-            subtitle: _('Select one of the 5 visual presentation modes'),
+            subtitle: _('Select one of the 3 visual presentation modes'),
             model: new Gtk.StringList({
                 strings: styleNames,
             }),
@@ -168,7 +164,7 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
 
         const previewContainer = new Gtk.Box({
             orientation: Gtk.Orientation.HORIZONTAL,
-            spacing: 8,
+            spacing: 12,
             valign: Gtk.Align.CENTER,
             halign: Gtk.Align.END,
             margin_top: 4,
@@ -202,7 +198,7 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
 
                 const b2 = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, spacing: 1, halign: Gtk.Align.CENTER });
                 b2.append(new Gtk.Label({ label: '2', css_classes: ['dim-label'] }));
-                b2.append(new Gtk.Label({ label: '•', css_classes: ['dim-label'] }));
+                b2.append(new Gtk.Label({ label: ' ' }));
 
                 const b3 = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL, spacing: 1, halign: Gtk.Align.CENTER });
                 b3.append(new Gtk.Label({ label: '3', css_classes: ['dim-label'] }));
@@ -218,22 +214,6 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
                 previewContainer.append(p1);
                 previewContainer.append(p2);
                 previewContainer.append(p3);
-            } else if (key === 'names') {
-                const n1 = new Gtk.Label({ label: ' 1 Trabalho ', css_classes: ['card', 'heading'] });
-                const n2 = new Gtk.Label({ label: ' 2 Pessoal ', css_classes: ['dim-label'] });
-                const n3 = new Gtk.Label({ label: ' 3 Estudos ', css_classes: ['dim-label'] });
-                previewContainer.append(n1);
-                previewContainer.append(n2);
-                previewContainer.append(n3);
-            } else if (key === 'animated') {
-                const a1 = new Gtk.Label({ label: ' 1 ', css_classes: ['card', 'dim-label'] });
-                const arr = new Gtk.Label({ label: '→', css_classes: ['dim-label'] });
-                const a2 = new Gtk.Label({ label: ' 2 ', css_classes: ['card', 'heading'] });
-                const a3 = new Gtk.Label({ label: '3', css_classes: ['dim-label'] });
-                previewContainer.append(a1);
-                previewContainer.append(arr);
-                previewContainer.append(a2);
-                previewContainer.append(a3);
             }
         };
 
@@ -247,53 +227,7 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
         // Inicializa preview
         updatePreview(styleKeys[initialIndex]);
 
-        // 2. Grupo Nomes dos Workspaces (Estilo 4)
-        const namesGroup = new Adw.PreferencesGroup({
-            title: _('Workspace Names'),
-            description: _('Custom names for dynamic workspaces. If left empty, only the number is shown.'),
-        });
-        pageVisual.add(namesGroup);
-
-        const buildNameRows = () => {
-            // Remove linhas existentes se houver
-            let firstRow = namesGroup.get_first_child();
-            // Nota: AdwPreferencesGroup pode ter header interno, então iteramos com cuidado
-            // Como EntryRow é adicionada ao grupo via namesGroup.add()
-            const maxWorkspaces = settings.get_int('max-workspaces') || 10;
-            const currentNames = settings.get_strv('workspace-names') || [];
-
-            for (let i = 0; i < maxWorkspaces; i++) {
-                const wsIndex = i;
-                const entryRow = new Adw.EntryRow({
-                    title: _('Workspace %d').format(wsIndex + 1),
-                });
-                if (currentNames[wsIndex]) {
-                    entryRow.set_text(currentNames[wsIndex]);
-                }
-
-                entryRow.connect('changed', () => {
-                    const textVal = (entryRow.get_text() || '').trim();
-                    const namesList = settings.get_strv('workspace-names') || [];
-                    while (namesList.length < maxWorkspaces) {
-                        namesList.push('');
-                    }
-                    namesList[wsIndex] = textVal;
-
-                    // Remove strings vazias ao final para manter array conciso
-                    while (namesList.length > 0 && namesList[namesList.length - 1] === '') {
-                        namesList.pop();
-                    }
-
-                    settings.set_strv('workspace-names', namesList);
-                });
-
-                namesGroup.add(entryRow);
-            }
-        };
-
-        buildNameRows();
-
-        // 3. Grupo Painel e Elementos
+        // 2. Grupo Painel e Elementos
         const panelGroup = new Adw.PreferencesGroup({
             title: _('Panel and Elements'),
             description: _('Configure panel placement and complementary visual elements'),

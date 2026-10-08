@@ -8,7 +8,7 @@
 - **Workspaces Persistentes**:
   - Configuração ajustável para manter as primeiras $N$ workspaces sempre visíveis (padrão: `1`), mesmo que estejam completamente vazias.
 
-## 2. Nova Seção "Visual": 5 Modos de Apresentação
+## 2. Nova Seção "Visual": 3 Modos de Apresentação
 Configuráveis em tempo de execução via interface gráfica sem necessidade de reiniciar a sessão:
 
 1. **GNOME Puro (Minimalista)**:
@@ -16,18 +16,11 @@ Configuráveis em tempo de execução via interface gráfica sem necessidade de 
    - Tipografia nativa com alto contraste para a workspace ativa e menor contraste para inativas.
    - Sem bordas, sem fundos chamativos e sem elementos decorativos desnecessários.
 2. **Indicadores de Uso (Dots)**:
-   - Exibe números acompanhados por pequenos pontos discretos diretamente abaixo das workspaces que possuem janelas abertas.
-   - Atualização em tempo real ao abrir, fechar ou mover janelas entre telas.
+   - Exibe o número da workspace com um ponto discreto (`•`) posicionado exclusivamente abaixo da workspace ativa.
+   - Inativas permanecem limpas como texto simples, destacando com precisão o workspace atual.
 3. **Cápsula Sutil (Adwaita)**:
    - Destaca a workspace ativa com uma superfície discreta translúcida (`rgba(255, 255, 255, 0.16)`).
    - Inativos permanecem como texto simples sem fundos pesados.
-4. **Nomes Dinâmicos**:
-   - Exibe o número do workspace acompanhado de um nome textual personalizável (ex.: `1 Trabalho`, `2 Pessoal`, `3 Estudos`).
-   - Gerenciamento direto através da seção "Nomes dos workspaces" na aba Visual.
-   - Truncamento suave de texto com reticências para garantir que nomes longos nunca quebrem o painel.
-5. **Transição Animada (Sliding Pill)**:
-   - Move suavemente a cápsula deslizante entre as workspaces durante a troca (`180ms` com easing `EASE_OUT_QUAD`).
-   - Interrupção fluida em trocas rápidas e desacoplamento sem acúmulo de animações.
 
 ## 3. Navegação Rápida e Produtiva via Teclado
 - **Alternar de Workspace Diretamente**:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dynamic Workspaces 1\n"
 "Report-Msgid-Bugs-To: enthonyaraujo01@gmail.com\n"
-"POT-Creation-Date: 2026-10-08 14:45-0300\n"
+"POT-Creation-Date: 2026-10-08 14:58-0300\n"
 "PO-Revision-Date: 2026-10-08 14:40-0300\n"
 "Last-Translator: Enthony Araujo <enthonyaraujo01@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -17,17 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: extension.js:311
-#, javascript-format
-msgid "Workspace %d: %s"
-msgstr "Workspace %d: %s"
-
-#: extension.js:316 prefs.js:268
+#: extension.js:220
 #, javascript-format
 msgid "Workspace %d"
 msgstr "Workspace %d"
 
-#: extension.js:379
+#: extension.js:282
 msgid "Dynamic Workspaces"
 msgstr "Workspaces Dinâmicas"
 
@@ -146,111 +141,117 @@ msgstr "Indicadores de uso"
 msgid "Cápsula sutil"
 msgstr "Cápsula sutil"
 
-#: prefs.js:130
-msgid "Nomes dinâmicos"
-msgstr "Nomes dinâmicos"
-
-#: prefs.js:131
-msgid "Transição animada"
-msgstr "Transição animada"
-
-#: prefs.js:134
+#: prefs.js:132
 msgid ""
 "Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell."
 msgstr ""
 "Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell."
 
-#: prefs.js:135
-msgid "Mostra quais workspaces possuem janelas abertas com pontos discretos."
-msgstr "Mostra quais workspaces possuem janelas abertas com pontos discretos."
+#: prefs.js:133
+msgid ""
+"Exibe o número da workspace com um ponto discreto apenas na workspace ativa."
+msgstr ""
+"Exibe o número da workspace com um ponto discreto apenas na workspace ativa."
 
-#: prefs.js:136
-msgid "Destaca o workspace atual com uma superfície discreta estilo Adwaita."
-msgstr "Destaca o workspace atual com uma superfície discreta estilo Adwaita."
+#: prefs.js:134
+msgid "Destaca a workspace ativa com uma superfície discreta estilo Adwaita."
+msgstr "Destaca a workspace ativa com uma superfície discreta estilo Adwaita."
 
-#: prefs.js:137
-msgid "Permite exibir nomes personalizados para os workspaces."
-msgstr "Permite exibir nomes personalizados para os workspaces."
-
-#: prefs.js:138
-msgid "Move suavemente o indicador ao trocar de workspace."
-msgstr "Move suavemente o indicador ao trocar de workspace."
-
-#: prefs.js:146
+#: prefs.js:142
 msgid "Indicator style"
 msgstr "Estilo do indicador"
 
-#: prefs.js:147
-msgid "Select one of the 5 visual presentation modes"
-msgstr "Selecione um dos 5 modos de apresentação visual"
+#: prefs.js:143
+msgid "Select one of the 3 visual presentation modes"
+msgstr "Selecione um dos 3 modos de apresentação visual"
 
-#: prefs.js:157
+#: prefs.js:153
 msgid "About this style"
 msgstr "Sobre este estilo"
 
-#: prefs.js:164
+#: prefs.js:160
 msgid "Live Preview"
 msgstr "Prévia Visual"
 
-#: prefs.js:165
+#: prefs.js:161
 msgid "Preview of how the indicator will look in the top bar"
 msgstr "Prévia de como o indicador aparecerá na barra superior"
 
-#: prefs.js:252
-msgid "Workspace Names"
-msgstr "Nomes dos Workspaces"
-
-#: prefs.js:253
-msgid ""
-"Custom names for dynamic workspaces. If left empty, only the number is shown."
-msgstr ""
-"Nomes personalizados para workspaces dinâmicas. Se vazio, apenas o número é "
-"exibido."
-
-#: prefs.js:298
+#: prefs.js:232
 msgid "Panel and Elements"
 msgstr "Painel e Elementos"
 
-#: prefs.js:299
+#: prefs.js:233
 msgid "Configure panel placement and complementary visual elements"
 msgstr "Configurar posicionamento no painel e elementos visuais complementares"
 
-#: prefs.js:309
+#: prefs.js:243
 msgid "Panel position"
 msgstr "Posição no painel"
 
-#: prefs.js:310
+#: prefs.js:244
 msgid "Position of the dynamic workspace pills on the GNOME top bar"
 msgstr "Posição das pílulas dinâmicas na barra superior do GNOME"
 
-#: prefs.js:312
+#: prefs.js:246
 msgid "Left"
 msgstr "Esquerda"
 
-#: prefs.js:312
+#: prefs.js:246
 msgid "Center"
 msgstr "Centro"
 
-#: prefs.js:312
+#: prefs.js:246
 msgid "Right"
 msgstr "Direita"
 
-#: prefs.js:324
+#: prefs.js:258
 msgid "Hide default workspace indicator"
 msgstr "Ocultar indicador padrão de workspace"
 
-#: prefs.js:325
+#: prefs.js:259
 msgid ""
 "Hide the built-in GNOME activities / workspace dots button in the top bar."
 msgstr ""
 "Oculta o botão nativo de atividades / pontos de workspace do GNOME na barra "
 "superior."
 
-#: prefs.js:332
+#: prefs.js:266
 msgid "Show tooltip on hover"
 msgstr "Exibir dica ao passar o mouse"
 
-#: prefs.js:333
+#: prefs.js:267
 msgid "Show tooltip with workspace name when hovering over a pill."
 msgstr ""
 "Exibe uma dica com o nome da workspace ao passar o mouse sobre a pílula."
+
+#, javascript-format
+#~ msgid "Workspace %d: %s"
+#~ msgstr "Workspace %d: %s"
+
+#~ msgid "Nomes dinâmicos"
+#~ msgstr "Nomes dinâmicos"
+
+#~ msgid "Transição animada"
+#~ msgstr "Transição animada"
+
+#~ msgid ""
+#~ "Mostra quais workspaces possuem janelas abertas com pontos discretos."
+#~ msgstr ""
+#~ "Mostra quais workspaces possuem janelas abertas com pontos discretos."
+
+#~ msgid "Permite exibir nomes personalizados para os workspaces."
+#~ msgstr "Permite exibir nomes personalizados para os workspaces."
+
+#~ msgid "Move suavemente o indicador ao trocar de workspace."
+#~ msgstr "Move suavemente o indicador ao trocar de workspace."
+
+#~ msgid "Workspace Names"
+#~ msgstr "Nomes dos Workspaces"
+
+#~ msgid ""
+#~ "Custom names for dynamic workspaces. If left empty, only the number is "
+#~ "shown."
+#~ msgstr ""
+#~ "Nomes personalizados para workspaces dinâmicas. Se vazio, apenas o número "
+#~ "é exibido."
