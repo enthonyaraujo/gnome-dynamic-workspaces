@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="dynamic-workspaces">
+  <enum id="org.gnome.shell.extensions.dynamic-workspaces.PanelPosition">
+    <value value="0" nick="left"/>
+    <value value="1" nick="center"/>
+    <value value="2" nick="right"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.dynamic-workspaces"
+          path="/org/gnome/shell/extensions/dynamic-workspaces/">
+    <key name="persistent-workspaces" type="i">
+      <default>1</default>
+      <range min="0" max="20"/>
+      <summary>Always visible workspaces</summary>
+      <description>The first N workspaces stay visible even when empty. Active workspace is always shown.</description>
+    </key>
+    <key name="max-workspaces" type="i">
+      <default>10</default>
+      <range min="1" max="20"/>
+      <summary>Maximum workspaces</summary>
+      <description>Maximum number of workspaces to display in the indicator.</description>
+    </key>
+    <key name="follow-window" type="b">
+      <default>true</default>
+      <summary>Follow window when moving</summary>
+      <description>When moving active window to another workspace (Super+Shift+1..0), automatically follow focus to target workspace (Hyprland movetoworkspace style).</description>
+    </key>
+    <key name="filter-by-monitor" type="b">
+      <default>false</default>
+      <summary>Filter by monitor</summary>
+      <description>When enabled, only count windows located on the monitor where the panel indicator resides.</description>
+    </key>
+    <key name="hide-default-indicator" type="b">
+      <default>false</default>
+      <summary>Hide default workspace indicator</summary>
+      <description>Hide GNOME's built-in activities / workspace switcher dots button in the top bar.</description>
+    </key>
+    <key name="panel-position" enum="org.gnome.shell.extensions.dynamic-workspaces.PanelPosition">
+      <default>'left'</default>
+      <summary>Panel position</summary>
+      <description>Position of the indicator in the top panel (left, center, or right).</description>
+    </key>
+    <key name="show-workspace-names" type="b">
+      <default>false</default>
+      <summary>Show workspace names</summary>
+      <description>Display custom workspace names instead of numbers on pills.</description>
+    </key>
+    <key name="show-tooltip" type="b">
+      <default>true</default>
+      <summary>Show tooltip</summary>
+      <description>Display workspace name in a tooltip on hover.</description>
+    </key>
+  </schema>
+</schemalist>

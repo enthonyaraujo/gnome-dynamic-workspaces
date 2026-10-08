@@ -1,0 +1,97 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Enthony Araujo de Oliveira <enthonyaraujo01@gmail.com>
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+/* Container box inside panel */
+.workspace-indicator-box {
+    spacing: 4px;
+    padding: 0 4px;
+}
+
+/* Individual workspace pill button */
+.workspace-button {
+    min-width: 26px;
+    min-height: 22px;
+    padding: 2px 7px;
+    border-radius: 11px;
+    margin: 2px 1px;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+
+.workspace-button-label {
+    font-size: 10.5pt;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Active workspace: highlighted with GNOME theme accent color */
+.workspace-button.active {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+    box-shadow: 0 1px 4px alpha(@accent_bg_color, 0.4);
+}
+
+.workspace-button.active .workspace-button-label {
+    font-weight: bold;
+    color: @accent_fg_color;
+}
+
+/* Inactive workspace with open windows */
+.workspace-button.occupied {
+    background-color: alpha(currentColor, 0.12);
+    color: currentColor;
+}
+
+.workspace-button.occupied .workspace-button-label {
+    color: currentColor;
+}
+
+/* Inactive empty workspace (persistent) */
+.workspace-button.persistent {
+    background-color: alpha(currentColor, 0.05);
+    color: alpha(currentColor, 0.4);
+}
+
+.workspace-button.persistent .workspace-button-label {
+    color: alpha(currentColor, 0.45);
+}
+
+/* Hover effects */
+.workspace-button:hover {
+    background-color: alpha(currentColor, 0.18);
+}
+
+.workspace-button.active:hover {
+    background-color: shade(@accent_bg_color, 1.1);
+}
+
+.workspace-button.occupied:hover {
+    background-color: alpha(currentColor, 0.22);
+}
+
+.workspace-button.persistent:hover {
+    background-color: alpha(currentColor, 0.12);
+}
+
+.workspace-button.persistent:hover .workspace-button-label {
+    color: alpha(currentColor, 0.8);
+}
+
+/* Focus outline for keyboard navigation */
+.workspace-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px @accent_bg_color;
+}
+
+/* Tooltip appearance */
+.workspace-tooltip {
+    border-radius: 8px;
+    padding: 4px 10px;
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #ffffff;
+    font-size: 9.5pt;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
