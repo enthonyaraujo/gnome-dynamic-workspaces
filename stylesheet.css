@@ -28,14 +28,14 @@
 
 /* Active workspace: highlighted with GNOME theme accent color */
 .workspace-button.active {
-    background-color: @accent_bg_color;
-    color: @accent_fg_color;
-    box-shadow: 0 1px 4px alpha(@accent_bg_color, 0.4);
+    background-color: -st-accent-color;
+    color: -st-accent-fg-color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .workspace-button.active .workspace-button-label {
     font-weight: bold;
-    color: @accent_fg_color;
+    color: -st-accent-fg-color;
 }
 
 /* Inactive workspace with open windows */
@@ -64,7 +64,7 @@
 }
 
 .workspace-button.active:hover {
-    background-color: shade(@accent_bg_color, 1.1);
+    background-color: st-lighten(-st-accent-color, 8%);
 }
 
 .workspace-button.occupied:hover {
@@ -81,8 +81,7 @@
 
 /* Focus outline for keyboard navigation */
 .workspace-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px @accent_bg_color;
+    box-shadow: inset 0 0 0 2px -st-accent-color;
 }
 
 /* Tooltip appearance */
