@@ -1,0 +1,170 @@
+# Translation of Dynamic Workspaces in Brazilian Portuguese
+# Copyright (C) 2026 Enthony Araujo de Oliveira
+# This file is distributed under the same license as the Dynamic Workspaces package.
+# Enthony Araujo de Oliveira <enthonyaraujo01@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dynamic Workspaces 1\n"
+"Report-Msgid-Bugs-To: enthonyaraujo01@gmail.com\n"
+"POT-Creation-Date: 2026-10-08 10:42-0300\n"
+"PO-Revision-Date: 2026-10-08 10:43-0300\n"
+"Last-Translator: Enthony Araujo de Oliveira <enthonyaraujo01@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: extension.js:132
+#, javascript-format
+msgid "Workspace %d"
+msgstr "Workspace %d"
+
+#. Pass true as 3rd param (dontCreateMenu) to avoid unnecessary popup menu
+#: extension.js:192
+msgid "Dynamic Workspaces"
+msgstr "Workspaces Dinâmicas"
+
+#: prefs.js:17
+msgid "Settings"
+msgstr "Configurações"
+
+#: prefs.js:24
+msgid "Workspaces Behavior"
+msgstr "Comportamento das Workspaces"
+
+#: prefs.js:25
+msgid "Configure dynamic display and persistent workspaces"
+msgstr "Configurar exibição dinâmica e workspaces persistentes"
+
+#: prefs.js:31
+msgid "Always visible workspaces"
+msgstr "Workspaces sempre visíveis"
+
+#: prefs.js:32
+msgid ""
+"The first N workspaces stay visible even when empty. The active workspace is "
+"always shown."
+msgstr ""
+"As primeiras N workspaces permanecem visíveis mesmo vazias. A workspace ativa é "
+"sempre exibida."
+
+#: prefs.js:46
+msgid "Maximum workspaces"
+msgstr "Máximo de workspaces"
+
+#: prefs.js:47
+msgid "Maximum number of workspaces to show in the indicator."
+msgstr "Número máximo de workspaces a exibir no indicador."
+
+#: prefs.js:61
+msgid "Follow window when moving"
+msgstr "Acompanhar janela ao mover"
+
+#: prefs.js:62
+msgid ""
+"When moving active window to another workspace (Super+Shift+1..0), "
+"automatically follow focus to target workspace (Hyprland movetoworkspace)."
+msgstr ""
+"Ao mover a janela ativa para outra workspace (Super+Shift+1..0), "
+"acompanhar o foco para a workspace de destino automaticamente (estilo movetoworkspace do Hyprland)."
+
+#: prefs.js:69
+msgid "Appearance and Layout"
+msgstr "Aparência e Layout"
+
+#: prefs.js:70
+msgid "Configure panel placement and visual elements"
+msgstr "Configurar posição no painel e elementos visuais"
+
+#: prefs.js:80
+msgid "Panel position"
+msgstr "Posição no painel"
+
+#: prefs.js:81
+msgid "Position of the dynamic workspace pills on the GNOME top bar"
+msgstr "Posição das pílulas dinâmicas na barra superior do GNOME"
+
+#: prefs.js:83
+msgid "Left"
+msgstr "Esquerda"
+
+#: prefs.js:83
+msgid "Center"
+msgstr "Centro"
+
+#: prefs.js:83
+msgid "Right"
+msgstr "Direita"
+
+#: prefs.js:95
+msgid "Hide default workspace indicator"
+msgstr "Ocultar indicador padrão de workspace"
+
+#: prefs.js:96
+msgid ""
+"Hide the built-in GNOME activities / workspace dots button in the top bar."
+msgstr ""
+"Oculta o botão nativo de atividades / pontos de workspace do GNOME na barra superior."
+
+#: prefs.js:103
+msgid "Show workspace names on pills"
+msgstr "Exibir nomes das workspaces nas pílulas"
+
+#: prefs.js:104
+msgid "Show custom workspace names instead of numbers."
+msgstr "Exibe nomes personalizados de workspace em vez de números."
+
+#: prefs.js:111
+msgid "Show tooltip on hover"
+msgstr "Exibir dica ao passar o mouse"
+
+#: prefs.js:112
+msgid "Show tooltip with workspace name when hovering over a pill."
+msgstr "Exibe uma dica com o nome da workspace ao passar o mouse sobre a pílula."
+
+#: prefs.js:119
+msgid "Multi-Monitor"
+msgstr "Múltiplos Monitores"
+
+#: prefs.js:120
+msgid "Multi-display occupancy filtering"
+msgstr "Filtragem de ocupação por monitor"
+
+#: prefs.js:125
+msgid "Only count windows on this monitor"
+msgstr "Contar apenas janelas neste monitor"
+
+#: prefs.js:126
+msgid ""
+"When enabled, a workspace is considered occupied only if it contains windows "
+"on the screen where the indicator is located."
+msgstr ""
+"Quando ativado, uma workspace só é considerada ocupada se contiver janelas "
+"na tela onde o indicador está localizado."
+
+#: prefs.js:133
+msgid "Keyboard Shortcuts Reference"
+msgstr "Referência de Atalhos de Teclado"
+
+#: prefs.js:134
+msgid "Configured system shortcuts for navigation and window management"
+msgstr "Atalhos configurados no sistema para navegação e gerenciamento de janelas"
+
+#: prefs.js:140
+msgid ""
+"• <b>Super+1..9, Super+0</b> — Switch directly to workspace 1–10\n"
+"• <b>Super+Shift+1..9, Super+Shift+0</b> — Move active window to workspace "
+"and follow view\n"
+"• <b>Left-Click</b> on any workspace pill — Switch to that workspace\n"
+"• <b>Mouse Wheel Scroll</b> on the indicator — Cycle workspaces forward / "
+"backward"
+msgstr ""
+"• <b>Super+1..9, Super+0</b> — Alternar diretamente para as workspaces 1–10\n"
+"• <b>Super+Shift+1..9, Super+Shift+0</b> — Mover janela ativa para a workspace "
+"e acompanhar foco\n"
+"• <b>Clique com botão esquerdo</b> em qualquer pílula — Alternar para essa workspace\n"
+"• <b>Rolar a roda do mouse</b> sobre o indicador — Avançar / voltar entre "
+"workspaces"

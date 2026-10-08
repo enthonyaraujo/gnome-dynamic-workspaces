@@ -11,15 +11,20 @@ echo "=========================================================="
 echo "  Instalação do Dynamic Workspaces (GNOME Shell 50/51)"
 echo "=========================================================="
 
-# 1. Compilar GSettings Schemas
+# 1. Compilar GSettings Schemas e Traduções
 echo ""
-echo "[1/6] Compilando schemas GSettings..."
+echo "[1/6] Compilando schemas GSettings e traduções..."
 if command -v glib-compile-schemas >/dev/null 2>&1; then
     glib-compile-schemas "$SCRIPT_DIR/schemas"
     echo "  -> Schemas compilados localmente com sucesso."
 else
     echo "  -> ERRO: 'glib-compile-schemas' não encontrado."
     exit 1
+fi
+
+if [ -f "$SCRIPT_DIR/build-translations.sh" ]; then
+    "$SCRIPT_DIR/build-translations.sh"
+    echo "  -> Traduções compiladas com sucesso."
 fi
 
 # 2. Instalar arquivos no diretório de extensões do GNOME Shell e esquemas de usuário
@@ -33,6 +38,12 @@ cp "$SCRIPT_DIR/prefs.js" "$TARGET_DIR/"
 cp "$SCRIPT_DIR/stylesheet.css" "$TARGET_DIR/"
 cp "$SCRIPT_DIR/schemas/org.gnome.shell.extensions.dynamic-workspaces.gschema.xml" "$TARGET_DIR/schemas/"
 cp "$SCRIPT_DIR/schemas/gschemas.compiled" "$TARGET_DIR/schemas/"
+
+# Copiar catálogo de traduções
+if [ -d "$SCRIPT_DIR/locale" ]; then
+    cp -r "$SCRIPT_DIR/locale" "$TARGET_DIR/"
+    echo "  -> Diretório locale copiado para $TARGET_DIR/locale"
+fi
 
 # Instalar também no diretório global de schemas do usuário para compatibilidade com gsettings
 USER_SCHEMAS_DIR="$HOME/.local/share/glib-2.0/schemas"

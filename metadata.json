@@ -8,6 +8,6 @@
     "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
     "url": "https://github.com/enthony/gnome-workspace-indicator",
     "settings-schema": "org.gnome.shell.extensions.dynamic-workspaces",
-    "gettext-domain": "dynamic-workspaces",
+    "gettext-domain": "dynamic-workspaces@enthony.github.io",
     "icon": "workspace-switcher-symbolic"
 }
