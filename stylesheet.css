@@ -9,6 +9,11 @@
     -minimum-hpadding: 2px;
 }
 
+/* Margin on left panel to avoid sticking to screen edge without affecting center/right */
+#panelLeft .workspace-indicator-panel {
+    margin-left: 6px;
+}
+
 /* Container box inside panel */
 .workspace-indicator-box {
     spacing: 2px;
@@ -19,27 +24,29 @@
 .workspace-button,
 .workspace-indicator {
     min-width: 16px;
-    min-height: 22px;
-    padding: 2px 4px;
+    min-height: 20px;
+    padding: 1px 4px;
     border-radius: 9999px;
-    margin: 2px 0;
+    margin: 3px 0;
     background-color: transparent;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.60);
     transition-duration: 150ms;
 }
 
 .workspace-button-label,
 .workspace-indicator-label {
-    font-size: 10.5pt;
+    font-size: 10pt;
     font-weight: 500;
     text-align: center;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.60);
     transition-duration: 150ms;
 }
 
-/* Active workspace: solid white pill with black text */
+/* Active workspace: elongated horizontal white pill with solid black text */
 .workspace-button.active,
 .workspace-indicator.active {
+    min-width: 24px;
+    padding: 1px 7px;
     background-color: #ffffff;
     color: #000000;
 }
@@ -51,16 +58,16 @@
     font-weight: bold;
 }
 
-/* Hover on inactive workspaces: subtle white tint with higher text opacity */
+/* Hover on inactive workspaces */
 .workspace-button:hover,
 .workspace-indicator:hover {
     background-color: rgba(255, 255, 255, 0.10);
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .workspace-button:hover .workspace-button-label,
 .workspace-indicator:hover .workspace-indicator-label {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Hover on active workspace maintains solid white pill */
