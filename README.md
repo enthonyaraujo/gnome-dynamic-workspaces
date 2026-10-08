@@ -8,13 +8,6 @@ Extensão para o **GNOME Shell 50 / 51** (e retrocompatível com 45+) que traz o
 - Ciclar entre workspaces rolando a roda do mouse sobre o indicador.
 - Script de instalação e configuração automatizado para Wayland e X11.
 
-
- a workspace `[2]` desaparecerá automaticamente e a `[3]` estará ativa.
-5. Abra uma janela na workspace 3 (ex.: terminal ou navegador) e volte para a workspace 1 (`Super+1`): a pílula `[3]` permanecerá visível indicando que há janelas ativas naquele desktop.
-6. Com uma janela aberta, pressione `Super+Shift+2`: a janela será enviada para a workspace 2 e a sua visualização acompanhará o foco imediatamente para a workspace 2!
-7. Role a roda do mouse sobre o indicador para avançar e voltar de workspace rapidamente.
-8. Clique com o botão esquerdo do mouse em qualquer pílula para saltar diretamente para ela.
-
 ---
 
 ## Autor & Mantenedor
