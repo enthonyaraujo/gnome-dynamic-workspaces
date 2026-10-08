@@ -18,7 +18,7 @@ if command -v gnome-extensions >/dev/null 2>&1; then
     echo "  -> Extensão desabilitada."
 fi
 
-# 2. Remover diretório da extensão
+# 2. Remover diretório da extensão e schemas de usuário
 echo ""
 echo "[2/4] Removendo arquivos da extensão..."
 if [ -d "$TARGET_DIR" ]; then
@@ -26,6 +26,13 @@ if [ -d "$TARGET_DIR" ]; then
     echo "  -> Diretório $TARGET_DIR removido."
 else
     echo "  -> Extensão não encontrada em $TARGET_DIR."
+fi
+
+USER_SCHEMA_FILE="$HOME/.local/share/glib-2.0/schemas/org.gnome.shell.extensions.dynamic-workspaces.gschema.xml"
+if [ -f "$USER_SCHEMA_FILE" ]; then
+    rm -f "$USER_SCHEMA_FILE"
+    glib-compile-schemas "$HOME/.local/share/glib-2.0/schemas" 2>/dev/null || true
+    echo "  -> Schemas de usuário removidos."
 fi
 
 # 3. Restaurar atalhos padrão do GNOME

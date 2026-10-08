@@ -31,7 +31,7 @@
       <description>When enabled, only count windows located on the monitor where the panel indicator resides.</description>
     </key>
     <key name="hide-default-indicator" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Hide default workspace indicator</summary>
       <description>Hide GNOME's built-in activities / workspace switcher dots button in the top bar.</description>
     </key>

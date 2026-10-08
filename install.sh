@@ -22,7 +22,7 @@ else
     exit 1
 fi
 
-# 2. Instalar arquivos no diretório de extensões do GNOME Shell
+# 2. Instalar arquivos no diretório de extensões do GNOME Shell e esquemas de usuário
 echo ""
 echo "[2/6] Instalando extensão no diretório do usuário..."
 mkdir -p "$TARGET_DIR/schemas"
@@ -34,7 +34,13 @@ cp "$SCRIPT_DIR/stylesheet.css" "$TARGET_DIR/"
 cp "$SCRIPT_DIR/schemas/org.gnome.shell.extensions.dynamic-workspaces.gschema.xml" "$TARGET_DIR/schemas/"
 cp "$SCRIPT_DIR/schemas/gschemas.compiled" "$TARGET_DIR/schemas/"
 
-echo "  -> Arquivos instalados em $TARGET_DIR"
+# Instalar também no diretório global de schemas do usuário para compatibilidade com gsettings
+USER_SCHEMAS_DIR="$HOME/.local/share/glib-2.0/schemas"
+mkdir -p "$USER_SCHEMAS_DIR"
+cp "$SCRIPT_DIR/schemas/org.gnome.shell.extensions.dynamic-workspaces.gschema.xml" "$USER_SCHEMAS_DIR/"
+glib-compile-schemas "$USER_SCHEMAS_DIR"
+
+echo "  -> Arquivos instalados em $TARGET_DIR e schemas registrados."
 
 # 3. Configurar número de workspaces no Mutter
 echo ""

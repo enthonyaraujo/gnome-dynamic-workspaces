@@ -414,8 +414,11 @@ export default class DynamicWorkspacesExtension extends Extension {
 
         // Restore default GNOME workspace indicator visibility
         const activities = Main.panel.statusArea['activities'];
-        if (activities && activities.container) {
-            activities.container.visible = true;
+        if (activities) {
+            if (activities.container) {
+                activities.container.visible = true;
+            }
+            activities.visible = true;
         }
 
         if (this._indicator) {
@@ -447,8 +450,11 @@ export default class DynamicWorkspacesExtension extends Extension {
     _syncDefaultIndicator() {
         const hide = this._settings.get_boolean('hide-default-indicator');
         const activities = Main.panel.statusArea['activities'];
-        if (activities && activities.container) {
-            activities.container.visible = !hide;
+        if (activities) {
+            if (activities.container) {
+                activities.container.visible = !hide;
+            }
+            activities.visible = !hide;
         }
     }
 }
