@@ -191,6 +191,8 @@ class WorkspaceIndicator extends PanelMenu.Button {
         // Pass true as 3rd param (dontCreateMenu) to avoid unnecessary popup menu
         super(0.0, _('Dynamic Workspaces'), true);
 
+        this.add_style_class_name('workspace-indicator-panel');
+
         this._extension = extension;
         this._settings = extension.getSettings();
         this._buttons = [];
