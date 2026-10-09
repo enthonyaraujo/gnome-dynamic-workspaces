@@ -55,10 +55,10 @@ echo "  -> Arquivos instalados em $TARGET_DIR e schemas registrados."
 
 # 3. Configurar número de workspaces no Mutter
 echo ""
-echo "[3/6] Configurando 10 workspaces estáticas no GNOME..."
-gsettings set org.gnome.mutter dynamic-workspaces false
+echo "[3/6] Configurando workspaces no GNOME (dinâmico por padrão)..."
+gsettings set org.gnome.mutter dynamic-workspaces true
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
-echo "  -> 10 workspaces configuradas."
+echo "  -> Workspaces dinâmicas configuradas por padrão (com base de 10 para modo fixo)."
 
 # 4. Desativar atalhos conflitantes do GNOME Dash (Super+1..9)
 echo ""

@@ -22,7 +22,86 @@ export default class DynamicWorkspacesPreferences extends ExtensionPreferences {
         });
         window.add(pageBehavior);
 
-        // 1. Grupo Comportamento das Workspaces
+        // 1. Grupo Gerenciamento de Espaços de Trabalho (Nativo GNOME)
+        const mutterSettings = new Gio.Settings({ schema_id: 'org.gnome.mutter' });
+        const wmSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.wm.preferences' });
+
+        const workspacesGroup = new Adw.PreferencesGroup({
+            title: _('Workspaces'),
+        });
+        pageBehavior.add(workspacesGroup);
+
+        const isDynamic = mutterSettings.get_boolean('dynamic-workspaces');
+
+        const radioDynamic = new Gtk.CheckButton({
+            active: isDynamic,
+        });
+        const radioFixed = new Gtk.CheckButton({
+            group: radioDynamic,
+            active: !isDynamic,
+        });
+
+        const rowDynamic = new Adw.ActionRow({
+            title: _('Dynamic workspaces'),
+            subtitle: _('Automatically removes empty workspaces'),
+        });
+        rowDynamic.add_prefix(radioDynamic);
+        rowDynamic.set_activatable_widget(radioDynamic);
+        workspacesGroup.add(rowDynamic);
+
+        const rowFixed = new Adw.ActionRow({
+            title: _('Fixed number of workspaces'),
+            subtitle: _('Specifies a permanent number of workspaces'),
+        });
+        rowFixed.add_prefix(radioFixed);
+        rowFixed.set_activatable_widget(radioFixed);
+        workspacesGroup.add(rowFixed);
+
+        const currentNum = wmSettings.get_int('num-workspaces');
+        const initialNum = (currentNum && currentNum > 0) ? currentNum : 10;
+        const fixedNumRow = new Adw.SpinRow({
+            title: _('Number of workspaces'),
+            adjustment: new Gtk.Adjustment({
+                lower: 1,
+                upper: 36,
+                step_increment: 1,
+                page_increment: 1,
+                value: initialNum,
+            }),
+            sensitive: !isDynamic,
+        });
+        wmSettings.bind('num-workspaces', fixedNumRow, 'value', Gio.SettingsBindFlags.DEFAULT);
+        workspacesGroup.add(fixedNumRow);
+
+        radioDynamic.connect('toggled', () => {
+            if (radioDynamic.active) {
+                mutterSettings.set_boolean('dynamic-workspaces', true);
+                fixedNumRow.sensitive = false;
+            }
+        });
+
+        radioFixed.connect('toggled', () => {
+            if (radioFixed.active) {
+                mutterSettings.set_boolean('dynamic-workspaces', false);
+                fixedNumRow.sensitive = true;
+            }
+        });
+
+        const mutterSignalId = mutterSettings.connect('changed::dynamic-workspaces', () => {
+            const dyn = mutterSettings.get_boolean('dynamic-workspaces');
+            if (radioDynamic.active !== dyn) {
+                radioDynamic.active = dyn;
+            }
+            fixedNumRow.sensitive = !dyn;
+        });
+
+        window.connect('close-request', () => {
+            if (mutterSignalId) {
+                mutterSettings.disconnect(mutterSignalId);
+            }
+        });
+
+        // 2. Grupo Comportamento das Workspaces
         const behaviorGroup = new Adw.PreferencesGroup({
             title: _('Workspaces Behavior'),
             description: _('Configure dynamic display and persistent workspaces'),

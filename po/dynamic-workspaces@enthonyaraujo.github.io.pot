@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dynamic Workspaces 1\n"
 "Report-Msgid-Bugs-To: enthonyaraujo01@gmail.com\n"
-"POT-Creation-Date: 2026-10-08 14:58-0300\n"
+"POT-Creation-Date: 2026-10-09 10:43-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,69 +30,93 @@ msgstr ""
 msgid "Behavior"
 msgstr ""
 
-#: prefs.js:27
+#: prefs.js:30
+msgid "Workspaces"
+msgstr ""
+
+#: prefs.js:45
+msgid "Dynamic workspaces"
+msgstr ""
+
+#: prefs.js:46
+msgid "Automatically removes empty workspaces"
+msgstr ""
+
+#: prefs.js:53
+msgid "Fixed number of workspaces"
+msgstr ""
+
+#: prefs.js:54
+msgid "Specifies a permanent number of workspaces"
+msgstr ""
+
+#: prefs.js:63
+msgid "Number of workspaces"
+msgstr ""
+
+#: prefs.js:106
 msgid "Workspaces Behavior"
 msgstr ""
 
-#: prefs.js:28
+#: prefs.js:107
 msgid "Configure dynamic display and persistent workspaces"
 msgstr ""
 
-#: prefs.js:34
+#: prefs.js:113
 msgid "Always visible workspaces"
 msgstr ""
 
-#: prefs.js:35
+#: prefs.js:114
 msgid ""
 "The first N workspaces stay visible even when empty. The active workspace is "
 "always shown."
 msgstr ""
 
-#: prefs.js:49
+#: prefs.js:128
 msgid "Maximum workspaces"
 msgstr ""
 
-#: prefs.js:50
+#: prefs.js:129
 msgid "Maximum number of workspaces to show in the indicator."
 msgstr ""
 
-#: prefs.js:64
+#: prefs.js:143
 msgid "Follow window when moving"
 msgstr ""
 
-#: prefs.js:65
+#: prefs.js:144
 msgid ""
 "When moving active window to another workspace (Super+Shift+1..0), "
 "automatically follow focus to target workspace (Hyprland movetoworkspace)."
 msgstr ""
 
-#: prefs.js:72
+#: prefs.js:151
 msgid "Multi-Monitor"
 msgstr ""
 
-#: prefs.js:73
+#: prefs.js:152
 msgid "Multi-display occupancy filtering"
 msgstr ""
 
-#: prefs.js:78
+#: prefs.js:157
 msgid "Only count windows on this monitor"
 msgstr ""
 
-#: prefs.js:79
+#: prefs.js:158
 msgid ""
 "When enabled, a workspace is considered occupied only if it contains windows "
 "on the screen where the indicator is located."
 msgstr ""
 
-#: prefs.js:86
+#: prefs.js:165
 msgid "Keyboard Shortcuts Reference"
 msgstr ""
 
-#: prefs.js:87
+#: prefs.js:166
 msgid "Configured system shortcuts for navigation and window management"
 msgstr ""
 
-#: prefs.js:93
+#: prefs.js:172
 msgid ""
 "• <b>Super+1..9, Super+0</b> — Switch directly to workspace 1–10\n"
 "• <b>Super+Shift+1..9, Super+Shift+0</b> — Move active window to workspace "
@@ -102,105 +126,105 @@ msgid ""
 "backward"
 msgstr ""
 
-#: prefs.js:113
+#: prefs.js:192
 msgid "Visual"
 msgstr ""
 
-#: prefs.js:120
+#: prefs.js:199
 msgid "Indicator Style"
 msgstr ""
 
-#: prefs.js:121
+#: prefs.js:200
 msgid "Choose the visual presentation of the workspace indicator"
 msgstr ""
 
-#: prefs.js:127
+#: prefs.js:206
 msgid "GNOME Puro"
 msgstr ""
 
-#: prefs.js:128
+#: prefs.js:207
 msgid "Indicadores de uso"
 msgstr ""
 
-#: prefs.js:129
+#: prefs.js:208
 msgid "Cápsula sutil"
 msgstr ""
 
-#: prefs.js:132
+#: prefs.js:211
 msgid ""
 "Indicador minimalista seguindo a linguagem visual padrão do GNOME Shell."
 msgstr ""
 
-#: prefs.js:133
+#: prefs.js:212
 msgid ""
 "Exibe o número da workspace com um ponto discreto apenas na workspace ativa."
 msgstr ""
 
-#: prefs.js:134
+#: prefs.js:213
 msgid "Destaca a workspace ativa com uma superfície discreta estilo Adwaita."
 msgstr ""
 
-#: prefs.js:142
+#: prefs.js:221
 msgid "Indicator style"
 msgstr ""
 
-#: prefs.js:143
+#: prefs.js:222
 msgid "Select one of the 3 visual presentation modes"
 msgstr ""
 
-#: prefs.js:153
+#: prefs.js:232
 msgid "About this style"
 msgstr ""
 
-#: prefs.js:160
+#: prefs.js:239
 msgid "Live Preview"
 msgstr ""
 
-#: prefs.js:161
+#: prefs.js:240
 msgid "Preview of how the indicator will look in the top bar"
 msgstr ""
 
-#: prefs.js:232
+#: prefs.js:311
 msgid "Panel and Elements"
 msgstr ""
 
-#: prefs.js:233
+#: prefs.js:312
 msgid "Configure panel placement and complementary visual elements"
 msgstr ""
 
-#: prefs.js:243
+#: prefs.js:322
 msgid "Panel position"
 msgstr ""
 
-#: prefs.js:244
+#: prefs.js:323
 msgid "Position of the dynamic workspace pills on the GNOME top bar"
 msgstr ""
 
-#: prefs.js:246
+#: prefs.js:325
 msgid "Left"
 msgstr ""
 
-#: prefs.js:246
+#: prefs.js:325
 msgid "Center"
 msgstr ""
 
-#: prefs.js:246
+#: prefs.js:325
 msgid "Right"
 msgstr ""
 
-#: prefs.js:258
+#: prefs.js:337
 msgid "Hide default workspace indicator"
 msgstr ""
 
-#: prefs.js:259
+#: prefs.js:338
 msgid ""
 "Hide the built-in GNOME activities / workspace dots button in the top bar."
 msgstr ""
 
-#: prefs.js:266
+#: prefs.js:345
 msgid "Show tooltip on hover"
 msgstr ""
 
-#: prefs.js:267
+#: prefs.js:346
 msgid "Show tooltip with workspace name when hovering over a pill."
 msgstr ""
